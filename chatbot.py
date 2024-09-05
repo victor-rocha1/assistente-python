@@ -2,6 +2,7 @@ from gtts import gTTS
 from playsound import playsound
 import speech_recognition as sr
 import sys
+import funcoes_so
 
 # Função que cria o áudio (converte texto para voz)
 def cria_audio(audio, mensagem):
@@ -9,6 +10,7 @@ def cria_audio(audio, mensagem):
     tts.save(audio)
     playsound(audio)
     
+# Microfone (voz para texto)
 def monitora_audio():
     recon = sr.Recognizer()
     with sr.Microphone() as source:
@@ -18,7 +20,7 @@ def monitora_audio():
             try:
                 mensagem = recon.recognize_google(audio, language='pt-br')
                 mensagem = mensagem.lower()
-                print("Você disse ", mensagem)
+                print("Você disse: ", mensagem)
                 executa_comandos(mensagem)
                 break
             except sr.UnknownValueError:
@@ -30,6 +32,8 @@ def monitora_audio():
 def executa_comandos(acao):
     if 'fechar assistente' in acao:
         sys.exit()
+    elif 'horas' in acao:
+        cria_audio('mensagem.mp3',funcoes_so.verfica_hora())
         
         
 def main():
