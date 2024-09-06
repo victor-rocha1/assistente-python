@@ -26,8 +26,8 @@ python assistente-python.py
 pip install -r requirements.txt
 ```
 ## ⚙️ Funcionalidades do Assistente
-- Retornar a hora atual
-- Agendar desligamento (5, 10 ou 15 minutos)
-- Cancelar desligamento
-- Retornar as notícias mais recentes.
-- Cotação de moedas como **Dólar**, **Euro** e **Bitcoin**.
+- Retornar a hora atual - "Quantas horas são?"
+- Agendar desligamento (5, 10 ou 15 minutos) - "Desligue em 15 minutos"
+- Cancelar desligamento - "Cancelar Desligamento"
+- Retornar as notícias mais recentes. "Informe as notícias"
+- Cotação de moedas como **Dólar**, **Euro** e **Bitcoin**. - "Me fale sobre a cotação do Dólar"
