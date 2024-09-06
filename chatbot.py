@@ -5,6 +5,7 @@ import sys
 import time
 import funcoes_so
 import funcoes_noticias
+import funcoes_moedas
 
 # Função que cria o áudio (converte texto para voz)
 def cria_audio(audio, mensagem):
