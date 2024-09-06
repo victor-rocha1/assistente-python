@@ -47,6 +47,14 @@ def executa_comandos(acao):
         sys.exit()
     elif 'horas' in acao:
         cria_audio('mensagem.mp3', funcoes_so.verfica_hora())
+    elif 'desligue em 5' in acao:
+        cria_audio('mensagem.mp3', funcoes_so.desligar_5_minutos())
+    elif 'desligue em 10' in acao:
+        cria_audio('mensagem.mp3', funcoes_so.desligar_10_minutos())
+    elif 'desligue em 15' in acao:
+        cria_audio('mensagem.mp3', funcoes_so.desligar_15_minutos())
+    elif 'cancele'in acao or 'cancelar':
+        cria_audio('mensagem.mp3', funcoes_so.cancela_desligamento())
     elif 'notícias' in acao:
         cria_audio_noticias()
     elif 'cotação' in acao and 'dólar':
