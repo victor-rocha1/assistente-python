@@ -21,4 +21,4 @@ def desligar_15_minutos():
 
 def cancela_desligamento():
     os.system('shutdown /a')  # Cancela o desligamento
-    return 'Desligamento cancelado.'
+    return 'O desligamento foi cancelado.'

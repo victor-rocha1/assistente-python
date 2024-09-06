@@ -53,7 +53,7 @@ def executa_comandos(acao):
         cria_audio('mensagem.mp3', funcoes_so.desligar_10_minutos())
     elif 'desligue em 15' in acao:
         cria_audio('mensagem.mp3', funcoes_so.desligar_15_minutos())
-    elif 'cancele'in acao or 'cancelar':
+    elif 'cancele'in acao or 'cancelar' in acao:
         cria_audio('mensagem.mp3', funcoes_so.cancela_desligamento())
     elif 'notícias' in acao:
         cria_audio_noticias()
