@@ -1,30 +1,21 @@
-from requests.exceptions import RequestException
+from requests import get
 
 def cotacao_moeda(moeda):
     try:
         if moeda == "Dólar":
-            requisicao = get('https://economia.awesomeapi.com.br/json/last/USD-BRL')
-            cotacao = requisicao.json()
-            nome = cotacao['USDBRL']['name']
-            data = cotacao['USDBRL']['create_date']
-            valor = cotacao['USDBRL']['bid']
-            mensagem = f'Cotação do {nome} em {data} é {valor} reais'
+            url = 'https://economia.awesomeapi.com.br/json/last/USD-BRL'
         elif moeda == "Euro":
-            requisicao = get('https://economia.awesomeapi.com.br/json/last/EUR-BRL')
-            cotacao = requisicao.json()
-            nome = cotacao['EURBRL']['name']
-            data = cotacao['EURBRL']['create_date']
-            valor = cotacao['EURBRL']['bid']
-            mensagem = f'Cotação do {nome} em {data} é {valor} reais'
+            url = 'https://economia.awesomeapi.com.br/json/last/EUR-BRL'
         elif moeda == "Bitcoin":
-            requisicao = get('https://economia.awesomeapi.com.br/json/last/BTC-BRL')
-            cotacao = requisicao.json()
-            nome = cotacao['BTCBRL']['name']
-            data = cotacao['BTCBRL']['create_date']
-            valor = cotacao['BTCBRL']['bid']
-            mensagem = f'Cotação do {nome} em {data} é {valor} reais'
-        return mensagem
-    except RequestException:
-        return 'Não foi possível obter a cotação. Verifique sua conexão com a internet.'
+            url = 'https://economia.awesomeapi.com.br/json/last/BTC-BRL'
+        else:
+            return 'Moeda não suportada.'
 
-# print(cotacao_moeda("Bitcoin"))
+        requisicao = get(url)
+        cotacao = requisicao.json()
+        nome = cotacao[list(cotacao.keys())[0]]['name']
+        data = cotacao[list(cotacao.keys())[0]]['create_date']
+        valor = cotacao[list(cotacao.keys())[0]]['bid']
+        return f'Cotacão do {nome} em {data} é {valor} reais.'
+    except Exception:
+        return 'Erro ao obter a cotação. Verifique sua conexão.'
